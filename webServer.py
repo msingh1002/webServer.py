@@ -55,7 +55,7 @@ def webServer(port=13331):
       #Send everything as one send command, do not send one line/item at a time!
 
       # Fill in start
-      combination = header = outputdata
+      combination = header + outputdata
       connectionSocket.sendall(combination)
 
       # Fill in end
