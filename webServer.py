@@ -4,20 +4,20 @@ from socket import *
 import sys
 
 def webServer(port=13331):
-  serverSocket = socket(AF_INET, SOCK_STREAM) as m:
+  serverSocket = socket(AF_INET, SOCK_STREAM)
   
   #Prepare a server socket
-  m.bind(("", port))
+  serverSocket.bind(("", port))
   
   #Fill in start
-  m.listen()
+  serverSocket.listen()
   #Fill in end
 
   while True:
     #Establish the connection
     
     print('Ready to serve...')
-    connectionSocket, addr = m.accept()
+    connectionSocket, addr = serverSocket.accept()
     
     try:
       message = connectionSocket.recv(1024).decode()
