@@ -35,10 +35,10 @@ def webServer(port=13331):
 
       #This variable can store the headers you want to send for any valid or invalid request.   What header should be sent for a response that is ok?    
       #Fill in start 
-      goodHeader = b"HTTP/1.1 200 OK\r\n"
       outputdata = b"Server: Thisistough\r\n"
       outputdata += b"Content-Type: text/html; charset=UTF-8\r\n"
       outputdata += b"Connection: Close\r\n\r\n"
+      goodHeader = b"HTTP/1.1 200 OK\r\n"
 
       #Note that a complete header must end with a blank line, creating the four-byte sequence "\r\n\r\n" Refer to https://w3.cs.jmu.edu/kirkpams/OpenCSF/Books/csf/html/TCPSockets.html
  
@@ -63,9 +63,9 @@ def webServer(port=13331):
       # Send response message for invalid request due to the file not being found (404)
       # Remember the format you used in the try: block!
       #Fill in start
-      badHeader = b"HTTP/1.1 404 NOT FOUND\r\n"
-      badHeader += b"Server: Thisistough\r\n"
+      badHeader = b"Server: Thisistough\r\n"
       badHeader += b"Content-Type: text/html; charset=UTF-8\r\n"
+      badHeader += b"HTTP/1.1 404 NOT FOUND\r\n"
       badHeader += b"Connection: Close \r\n\r\n"
 
       connectionSocket.sendall(badHeader)
