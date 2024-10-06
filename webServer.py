@@ -10,13 +10,13 @@ def webServer(port=13331):
   serverSocket.bind(("", port))
   
   #Fill in start
-  serverSocket.listen()
+  serverSocket.listen(1)
   #Fill in end
 
   while True:
     #Establish the connection
     
-    print('Ready to serve...')
+    #print('Ready to serve...')
     connectionSocket, addr = serverSocket.accept()
     
     try:
@@ -35,7 +35,8 @@ def webServer(port=13331):
 
       #Content-Type is an example on how to send a header as bytes. There are more!
       outputdata = b"Content-Type: text/html; charset=UTF-8\r\n"
-
+      outputdata += b"Server: Thisoneistough"
+      outputdata =+ b"Connection: Close \r\n\r\n"
 
       #Note that a complete header must end with a blank line, creating the four-byte sequence "\r\n\r\n" Refer to https://w3.cs.jmu.edu/kirkpams/OpenCSF/Books/csf/html/TCPSockets.html
  
